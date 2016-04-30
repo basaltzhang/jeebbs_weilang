@@ -1,16 +1,46 @@
-<div>
-	<div class="wrapper" style="margin-top:5px !important; margin-top:12px;">
-	<div class="dhlheader">
-	  <div class="dhlmenu"> <a title="JEECMS官方网站" href="${base}/" class="logo" id="logo"></a>
-		<ul class="dhlmenu-list">
-		 <li class="dhlmenu-list-index current"><a href="${base}/" >首页</a></li>
-	  <li><a href="http://www.jeecms.com" target="_blank">官网</a></li>
-	  <li><a href="http://www.jeecms.com/buy/index.htm" target="_blank">购买</a></li>
-	  <li><a href="http://www.jeecms.com/service/index.htm" target="_blank">服务</a></li>
-	  <li id="search" class=""><a href="${base}/topic/search.jhtml">主题搜索</a></li>
-	  [#if bbsMember??]<li><a href="${base}/bbsmember/index.htm" target="_blank">用户中心</a></li>[/#if]
-		</ul>
-	  </div>
+<div class='top_wrap'>
+	<div class='top_main'>
+		<div class='top_chat'>&nbsp;</div>
+		[#if user??]
+		<div class='top_main_links'>
+			<a href="${base}/member/index.jhtml">${user.username}</a>
+			<span>|</span>
+			[#if returnUrl?? && returnUrl?length gt 0]
+		    <a href="${base}/logout.jspx?returnUrl=${returnUrl!}">退出</a>
+		    [#else]
+		    <a href="${base}/logout.jspx?returnUrl=/">退出</a>
+		    [/#if]
+		</div>
+		[#else]
+		<div class='top_main_links'>
+			<a href='javascript:;'>登录</a>
+			<span>|</span>
+			<a href='javascript:;'>注册</a>
+		</div>
+		[/#if]
+		<div class='top_welcome'>维郎科普：欢迎来到科普体验在线！</div>
 	</div>
+</div>
+
+<div class='logo_search'>
+	<div class='logo_search_main'>
+		<div class='logo_main'></div>
+		<div class='search_main'>
+			<input class='main_search_input' placeholder='请输入搜索内容' />
+			<div class='main_search_btn'></div>
+		</div>
+	</div>
+</div>
+
+<div class='nav_wrap'>
+	<div class='nav_main'>
+		<a href='#'>首页</a>
+		<a href='#'>科普知识</a>
+		<a href='#'>科普产品</a>
+		<a href='#'>产品测试</a>
+		<a href='#'>科普实践</a>
+		<a href='#' class='on'>科普圈</a>
+		<a href='#'>解决方案</a>
+		<a href='#'>在线客服</a>
 	</div>
 </div>

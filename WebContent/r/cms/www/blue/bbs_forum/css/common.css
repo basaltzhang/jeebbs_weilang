@@ -1,0 +1,120 @@
+@charset "utf-8";
+/* CSS Document */
+/* reset */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements */
+dl, dt, dd, ul, ol, li , /* list element */
+pre, /* test formatting elements */
+fieldset, lengend, button, input, textarea, /* form elements */
+th, td  { /* table elements */
+	margin: 0;
+	padding: 0;
+}
+
+body,
+button, input, select, textarea { /* for ie */
+	font-family:Microsoft Yahei,Arial, Helvetica, sans-serif; /* for ie7*/
+	font-size: 14px;
+	line-height: 1;
+	overflow:auto;
+}
+h1 { font-size: 18px; }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
+h4, h5, h6 { font-size: 100%; }
+
+address, cite, dfn, em, var { font-style: normal; }
+code, kbd, pre, samp, tt { font-family: "Courier New", Courier, monospace; }
+small { font-size: 12px; }
+
+ul, ol { list-style: none; }
+
+a { text-decoration: none; color:#646464;}
+a:hover { text-decoration: none; }
+
+abbr[title], acronym[title] {
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+
+q:before, q:after { content: ''; }
+
+legend { color: #000;}
+fieldset, img { border: none; } 
+img {display:block;}
+
+button, input, select textarea {
+	font-size: 100%;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+hr {
+	border: none;
+	height: 1px;
+}
+
+html {
+	overflow-y:auto;
+}
+.clearfix:before,
+.clearfix:after {
+	content: ".";
+	height: 0;
+	font-size: 0;
+	display: block;
+	visibility: hidden;
+	clear: both;
+}
+body { background:#e7ebed;}
+
+/*top*/
+.top_wrap {width:100%; height:29px; background:#ebebeb; border-bottom:1px solid #ebebeb;}
+.top_main {width:1120px; height:29px; margin:0 auto; font-size:14px; color:#6e6c6c;}
+.top_chat {height:29px; width:20px; line-height:29px; float:right; background:url(../images/comTopBg.png) 0 0 no-repeat; cursor:pointer; margin:0 10px 0 0;}
+.top_main_links {height:29px; line-height:29px; float:right; margin:0 20px;}
+.top_main_links span {color:#d1d1d1; margin:0 3px;}
+.top_main_links a {color:#666;}
+.top_welcome {height:29px; line-height:29px; float:right;}
+
+/*nav*/
+.nav_wrap {width:100%; height:40px; background:#323232; }
+.nav_main {width:1120px; height:40px; margin:0 auto;}
+.nav_main a {width:100px; height:40px; text-align:center; line-height:40px; display:block; float:left; font-size:14px; color:#fff;}
+.nav_main a:hover,.nav_main .on { background:#eb4335;}
+
+/*footer*/
+.footer_wrap {width:100%; background:#323232; padding:65px 0 25px 0;}
+.footer_main {width:1120px; margin:0 auto;}
+.footer_main .footer_logo {width:313px; height:117px; background:url(../images/footer_logo.png) 0 0 no-repeat; float:left;}
+.footer_main .footer_about {width:200px; float:left; margin:0 0 0 70px;}
+.footer_main .footer_about ul {overflow:auto;}
+.footer_main .footer_about ul li{width:100px; height:40px; line-height:40px; float:left; text-align:center;}
+.footer_main .footer_about ul li a {color:#e9e7e7; font-size:14px;}
+.footer_main .footer_map {width:456px; float:left; margin:0 0 0 80px;}
+.footer_main .footer_map div a {height:40px; line-height:40px; display:inline-block; margin:0 10px 0 0; color:#e9e7e7; font-size:14px;}
+.footer_main .footer_title {text-align:center; height:40px; line-height:40px; font-size:18px; color:#fff; font-weight:bold;}
+.footer_main .information {clear:both; color:#d8d7d7; text-align:center; font-size:14px; padding:60px 0 0 0; text-align:center;}
+
+/*logo & search*/
+.logo_search {width:100%; height:80px; background:#fff;}
+.logo_search_main {width:1120px; height:80px; margin:0 auto;}
+.logo_main {width:232px; height:41px; background:url(../images/comTopBg.png) 0 -65px no-repeat; float:left; margin:19px 0 0;}
+.search_main {width:292px; height:36px; float:right; border:1px solid #e0e0e0; border-radius:3px; float:right; margin:22px 0 0 0;}
+.search_main .main_search_input {width:258px; height:36px; line-height:36px; text-align:center; float:left; border:0; background:#f3f3f3; outline:none;}
+.search_main .main_search_btn {width:14px; height:36px; padding:0 10px; background:url(../images/comTopBg.png) #f3f3f3 10px -29px no-repeat; float:right;}
+
+/*goChat*/
+.goChat {width:56px; position:fixed; bottom:10%; right:5%; z-index:99;}
+.goChat .weChat {width:56px; height:54px; background:url(../images/toTopChat.png) 0 0 no-repeat;}
+.goChat .toTop {width:56px; height:55px; background:url(../images/toTopChat.png) 0 -54px no-repeat; display:none;}
+
+/*主要框架*/
+.main_content {width:1120px; margin:0 auto; clear:both;}
+.main_left {width:800px; float:left; margin:10px 0 30px 0;}
+.main_right {width:300px; float:right; margin:10px 0 30px 0;}
+
+/*面包屑*/
+.current { height:30px; line-height:30px; font-size:14px; margin:10px 0 0;}

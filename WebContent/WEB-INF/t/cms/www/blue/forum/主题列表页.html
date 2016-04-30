@@ -10,6 +10,8 @@
     <script src="${resSys}/front.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="/${res}/bbs_forum/css/whole.css" />
     <link rel="stylesheet" type="text/css" href="/${res}/bbs_forum/css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="/${res}/bbs_forum/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/${res}/bbs_forum/css/02all.css" />
 	<script type="text/javascript">
 	function editTitle(id) {
 		$('#title'+id).show();
@@ -73,15 +75,142 @@
   </head>
   
   <body>
-    <!--header--> [#include "../include/页头.html"/]<!--/header--> 
-    <!--登录统计栏_Begin-->[#include "../include/登录统计.html"/]<!--登录统计栏_End-->
+	[#include "../include/页头.html"/]
+	<!--/header-->
+    <div>
+    <!--登录统计栏_Begin-->
+<!--     [#include "../include/登录统计.html"/] -->
+    <!--登录统计栏_End-->
+	</div>
+	<!--main-->
+    <div class="main_content">
+    <!--banner-->
+    <div class="knowledge_banner"><img src="/${res}/bbs_forum/images/02banner.jpg" /></div>
+    <div class="current">首页&gt;科普圈&gt;${forum.title}</div>
+    <!--left-->
+    <div class="main_left">
+    	<div class="pro_hot_block">
+        	<a href="#" class="first"></a>
+            <a href="#" class="second"></a>
+            <a href="#" class="third"></a>
+            <a href="#" class="four"></a>
+            <a href="#" class="five"></a>
+        </div>
+        <div class="pro_post_wrap">
+        	<div class="post_top">
+            	<span class="send_post">发布帖子</span>
+                <ul>
+                	<li class="all_post">全部帖子</li>
+                    <li class="top">置顶</li>
+                    <li class="top">精华</li>
+                </ul>
+            </div>
+            [#if pageNo==1]
+			[@topic_page topLevel='1' count='10' tpl='0' typeId='${typeId!}' parentTypeId='${parentTypeId!}']
+			[#list tag_pagination.list as topic]
+			[#if topic.topLevel==3||(topic.topLevel==2&&topic.forum.category.id==forum.category.id)||(topic.topLevel==1&&topic.forum.id==forum.id)]
+        	<table cellpadding="0" cellspacing="0" border="0" class="post_table">
+            	<tr>
+                	<td width="100"><img src="/${res}/bbs_forum/images/06issue_img.png" /></td>
+                    <td width="630">
+                    	<div class="header" href="${topic.url}">${topic.title?html}<span class="toTop">置顶</span>
+                    	[#if topic.primeLevel!=0]
+                    	<span class="essence">精华</span>
+                    	[/#if]
+                    	</div>
+                		<div class="sub_infor"><span class="writer">${topic.creater.username!}</span>
+                		<span>|</span>
+                		<span>${topic.createTime?string("yyyy-MM-dd HH:mm:ss")}发布</span>
+                		[@topic_vcount topicId=topic.id]${viewCount!}[/@topic_vcount]次阅读</div>
+                    </td>
+                	<td><span class="reply">${topic.replyCount!}</span></td>
+                </tr>
+            </table>
+        	[/#if]
+	        [/#list]
+	        [/@topic_page]
+			<!--置顶主题列表_End-->
+		    [/#if]
+            
+            [@topic_page forumId=forum.id findType=type topLevel='0' count='15' tpl='0' typeId='${typeId!}' parentTypeId='${parentTypeId!}']
+            [#list tag_pagination.list as topic]
+            <table cellpadding="0" cellspacing="0" border="0" class="post_table">
+            	<tr>
+                	<td width="100"><img src="/${res}/bbs_forum/images/06issue_img.png" /></td>
+                    <td width="630">
+                    	<div class="header" href="${topic.url}">${topic.title?html}
+                    	[#if topic.primeLevel!=0]
+                    	<span class="essence">精华</span>
+                    	[/#if]
+                    	</div>
+                		<div class="sub_infor">
+                		<span class="writer">${topic.creater.username!}</span>
+                		<span>|</span>
+                		<span>${topic.createTime?string("yyyy-MM-dd HH:mm:ss")}发布</span>
+                		[@topic_vcount topicId=topic.id]${viewCount!}[/@topic_vcount]次阅读
+                		</div>
+                    </td>
+                	<td><span class="reply">${topic.replyCount!}</span></td>
+                </tr>
+            </table>
+            [/#list]
+            <div class="check_more"><span>查看更多</span></div>	
+	        [/@topic_page]
+        </div>
+    </div>
+    <!--right-->
+    <div class="main_right issue_block">
+    	<div class="right_block">
+        	<p class="right_title">板块选择</p>
+            <div class="science_select">
+            	<a href="#" class="select_a">科普产品</a>
+                <a href="#" class="select_a">科普产品</a>
+                <a href="#" class="select_a">科普产品</a>
+                <a href="#" class="select_a">科普产品</a>
+                <a href="#" class="select_a">科普产品</a>
+                <a href="#" class="select_a">科普产品</a>
+                <a href="#" class="select_a">科普产品</a>
+                <a href="#" class="select_a">科普产品</a>
+            </div>
+        </div>
+        <!--热议话题-->
+        <div class="right_block">
+        	<p class="right_title">相关活动</p>
+            <div class="hot_list">
+            	<p class="sub_title"><span></span>十句话说出你对科普教育的认识</p>
+                <p class="belong_time">模块：科普知识</p>
+                <p class="belong_time">2016年4月25日&nbsp;17:00</p>
+            </div>
+            <div class="hot_list">
+            	<p class="sub_title"><span></span>十句话说出你对科普教育的认识</p>
+                <p class="belong_time">模块：科普知识</p>
+                <p class="belong_time">2016年4月25日&nbsp;17:00</p>
+            </div>
+            <div class="hot_list">
+            	<p class="sub_title"><span></span>十句话说出你对科普教育的认识</p>
+                <p class="belong_time">模块：科普知识</p>
+                <p class="belong_time">2016年4月25日&nbsp;17:00</p>
+            </div>
+        </div>
+    	<div class="right_block">
+        	<p class="right_title">相关商品</p>
+            <a href="#"><img src="/${res}/bbs_forum/images/02right_pic.png" /></a>
+            <a href="#"><img src="/${res}/bbs_forum/images/02right_pic.png" /></a>
+            <a href="#"><img src="/${res}/bbs_forum/images/02right_pic.png" /></a>
+            <a href="#"><img src="/${res}/bbs_forum/images/02right_pic.png" /></a>
+        </div>
+    </div>
+    <!--clear-->
+    <div class="clearfix"></div>
+    </div>
+    <script type="text/javascript" language="javascript" src="${resSys}/footer.js"></script>
     
 	<!--main-->
     <div class="main-wrap">
     
     <div id="main">
 	
-    [#include "../include/topic_search_includepage.html"/]
+<!--     [#include "../include/topic_search_includepage.html"/] -->
     <div class="c"></div>
     <div class="cc" id="breadCrumb"><img align="absmiddle" style="cursor: pointer;" src="/${res}/bbs_forum/img/home.gif" alt="" /> 
 	<a href="${base}/">${site.name}</a> &raquo; <a href="${forum.url}">${forum.title}</a></div>
@@ -216,7 +345,7 @@
 		  [#else]
 		 	  <img align="absmiddle" src="/${res}/bbs_forum/img/votenew.gif" alt="投票" />
 		 [/#if]
-	 </td>
+	 	</td>
 		<td style="text-align: left; line-height: 23px;">
 		[#if moderators]
 		<input type="checkbox" name="topicIds" value="${topic.id}"/>
